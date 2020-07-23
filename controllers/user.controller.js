@@ -19,6 +19,7 @@ module.exports = {
   },
 
   create: (req, res) => {
+      console.log(req.cookies)
     res.render('users/create')
   },
 
@@ -34,6 +35,7 @@ module.exports = {
     const data = req.body;
     const newId = userDb.length + 1;
     data.id = newId;
+
     db.get('users').push(data).write();
     res.redirect('/users/')
   }

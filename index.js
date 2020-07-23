@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user.route');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = 3001;
@@ -13,6 +14,7 @@ app.use(bodyParser.json())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser());
 
 //get page index.js  home page
 app.get('/', (req, res) => {
