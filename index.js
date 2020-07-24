@@ -4,6 +4,8 @@ const userRoutes = require('./routes/user.route');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/auth.route');
 
+const authMiddleware = require('./middleware/auth.middleware');
+
 const app = express();
 const port = 3001;
 
@@ -15,7 +17,7 @@ app.use(bodyParser.json())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser());
+app.use(cookieParser('abcdef'));
 
 //get page index.js  home page
 app.get('/', (req, res) => {
@@ -24,7 +26,7 @@ app.get('/', (req, res) => {
     });
 })
 
-app.use('/users', userRoutes);
+app.use('/users', authMiddleware.requireAuth, userRoutes);
 app.use('/auth', authRoutes);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

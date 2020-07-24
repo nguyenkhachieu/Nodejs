@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router();
 const controller = require('../controllers/user.controller');
-const validate = require('../validate/user.validate')
+const validate = require('../validate/user.validate');
+const authMidddleware = require('../middleware/auth.middleware');
 
-//get page users
-router.get('', controller.index);
+//get page users render middleware first
+router.get('', authMidddleware.requireAuth, controller.index);
 
 //cookie
 
