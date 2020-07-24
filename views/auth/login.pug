@@ -1,0 +1,15 @@
+h1 Login
+
+if errors
+  h2= errors[0]
+
+form(method="post")
+  label Email
+  input(type="text", name="email")
+  br
+  br
+  label Password
+  input(type="password", name="password")
+  br
+  br
+  button Login

@@ -1,24 +1,18 @@
 {
   "users": [
     {
-      "name": "asdas",
+      "name": "dasdasd",
       "id": 1
     },
     {
-      "name": "kaka",
-      "id": 2
+      "name": "asdasd",
+      "id": 2,
+      "email": "hhh@gmail.com",
+      "password": "123456"
     },
     {
-      "name": "hhh",
+      "name": "asdasdasd",
       "id": 3
-    },
-    {
-      "name": "new 3",
-      "id": 4
-    },
-    {
-      "name": "k",
-      "id": 5
     }
   ]
 }

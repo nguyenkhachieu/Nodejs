@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user.route');
 const cookieParser = require('cookie-parser');
+const authRoutes = require('./routes/auth.route');
 
 const app = express();
 const port = 3001;
@@ -24,5 +25,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
