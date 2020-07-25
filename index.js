@@ -1,3 +1,5 @@
+require('dotenv').config();
+console.log(process.env.SESSION_SECRET)
 const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user.route');
@@ -17,7 +19,7 @@ app.use(bodyParser.json())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser('abcdef'));
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 //get page index.js  home page
 app.get('/', (req, res) => {
