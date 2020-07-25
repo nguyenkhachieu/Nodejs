@@ -1,0 +1,13 @@
+extends ../layouts/common
+
+block content
+
+    h1 Products
+    .card-columns
+        each product in products
+            .card
+                img.card-img-top(src=product.image, alt='Card image cap')
+                .card-body
+                    h5(class="card-title")= product.name
+                    p(class="card-text")= product.description
+                    a.btn.btn-primary add Product

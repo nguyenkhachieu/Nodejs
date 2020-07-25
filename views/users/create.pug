@@ -1,9 +1,12 @@
-h1 Create User
+extends ../layouts/common
 
-if errors
-    div= errors[0]
+block content
+    h1 Create User
 
-form(action="/users/create", method="post")
-    label Name
-    input(type="text", name="name")
-    button Create
+    if errors
+        div= errors[0]
+
+    form(action="/users/create", method="post" class="d-flex mb-3")
+        label Name
+        input(type="text", name="name" class="form-control")
+        button(class="btn btn-primary ml-2") Create
