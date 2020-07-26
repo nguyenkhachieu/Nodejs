@@ -35,6 +35,8 @@ module.exports = {
     const data = req.body;
     const newId = userDb.length + 1;
     data.id = newId;
+    console.log('req.file.path', req.file)
+    data.avatar = `uploads/${req.file.filename}`;
 
     db.get('users').push(data).write();
     res.redirect('/users/')
