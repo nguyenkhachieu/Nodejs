@@ -1,15 +1,19 @@
-h1 Login
+extends ../layouts/common
 
-if errors
-  h2= errors[0]
+block content
 
-form(method="post")
-  label Email
-  input(type="text", name="email")
-  br
-  br
-  label Password
-  input(type="password", name="password")
-  br
-  br
-  button Login
+  h1 Login
+
+  if errors
+    h2= errors[0]
+
+  form(method="post")
+    label Email
+    input(type="text", name="email")
+    br
+    br
+    label Password
+    input(type="password", name="password")
+    br
+    br
+    button Login

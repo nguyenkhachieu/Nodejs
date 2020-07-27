@@ -21,16 +21,17 @@ app.use(bodyParser.json())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(express.static('public'))
 
 //get page index.js  home page
 app.get('/', (req, res) => {
     res.render('index', {
-        name: 'A'
+        name: 'Node js Express'
     });
 })
 
 app.use('/users', authMiddleware.requireAuth, userRoutes);
 app.use('/auth', authRoutes);
-app.use('/products', authMiddleware.requireAuth, productRoutes);
+app.use('/products', productRoutes);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
