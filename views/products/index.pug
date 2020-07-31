@@ -10,4 +10,4 @@ block content
                 .card-body
                     h5(class="card-title")= product.name
                     p(class="card-text")= product.description
-                    a.btn.btn-primary add Product
+                    a.btn.btn-primary(href="/cart/add" + product.id) add Product
