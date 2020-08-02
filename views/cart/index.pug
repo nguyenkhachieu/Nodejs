@@ -1,0 +1,13 @@
+extends ../layouts/common
+
+block content
+
+    h1 Number add Cart
+    if dataCart
+        span=dataCart.count
+        .card
+            div.image-block
+                img.card-img-top(src=dataCart.data.image, alt='Card image cap')
+            .card-body
+                h5(class="card-title")= dataCart.data.name
+                p(class="card-text")= dataCart.data.description

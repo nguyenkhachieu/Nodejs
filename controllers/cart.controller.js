@@ -8,16 +8,19 @@ module.exports.addToCart = (req, res, next) => {
     res.redirect('/products');
     return;
   }
-  console.log('productId', productId)
 
-  let count = db.get('sessions').find({ id: sessionId }).get('cart.' + productId, 0).write();
+  let count = db.get('sessions').find({ id: sessionId }).get('cart.' + productId, 0).value();
   db.get('sessions')
     .find({ id: sessionId })
     .set('cart.' + productId, count + 1)
     .write();
 
-  res.redirect('/products');
-  // res.render('cart/:productId', {
-  //   cart: matchedUsers
-  // })
+  // res.redirect('/products');
+  const dataCart = {
+    data: db.get('products').find({ id:  productId}).value(),
+    count: count + 1
+  }
+  res.render('cart/index', {
+    dataCart: dataCart
+  })
 };
