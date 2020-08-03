@@ -9,9 +9,9 @@ module.exports = async (req, res, next) => {
     });
   }
 
-  db.get('sessions').push({
-    id: req.signedCookies.sessionId
-  }).write();
+  // db.get('sessions').push({
+  //   id: req.signedCookies.sessionId
+  // }).write();
 
   next();
 }
